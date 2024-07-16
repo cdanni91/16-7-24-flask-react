@@ -8,6 +8,8 @@ function Home() {
     const [message, setMessage] = useState('');
     const navigate = useNavigate();
 
+
+
     const handleRegister = async () => {
         try {
             const response = await register(email, password);
@@ -16,6 +18,9 @@ function Home() {
             setMessage('Error registering');
         }
     };
+
+
+
 
     const handleLogin = async () => {
         try {
@@ -27,6 +32,8 @@ function Home() {
         }
     };
 
+
+    
     const handleProtected = async () => {
         try {
             const token = localStorage.getItem('token');
