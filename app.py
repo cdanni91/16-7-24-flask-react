@@ -10,11 +10,22 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 app.config['SECRET_KEY'] = 'your_secret_key'
 app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
 
+
+
+
+
 CORS(app)
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 jwt = JWTManager(app)
 migrate = Migrate(app,  db)
+
+
+
+
+
+
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -22,8 +33,7 @@ class User(db.Model):
     password = db.Column(db.String(60), nullable=False)
 
 
-def create_tables():
-    db.create_all()
+
 
 @app.route('/register', methods=['POST'])
 def register():
