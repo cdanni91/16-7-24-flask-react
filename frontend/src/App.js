@@ -1,10 +1,23 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 
 function App() {
+    return (
+        
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/protected" element={<Protected />} />
+            </Routes>
+        
+    );
+}
+
+function Home() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = async () => {
         try {
@@ -31,7 +44,9 @@ function App() {
             const response = await axios.get('http://localhost:5000/protected', {
                 headers: { Authorization: `Bearer ${token}` },
             });
-            setMessage(response.data.logged_in_as.email);
+            if (response.status === 200) {
+                navigate('/protected');
+            }
         } catch (error) {
             setMessage('Error accessing protected route');
         }
@@ -53,6 +68,14 @@ function App() {
             <button onClick={handleProtected}>Access Protected Route</button>
 
             <p>{message}</p>
+        </div>
+    );
+}
+
+function Protected() {
+    return (
+        <div>
+            <h2>LOGUEADO</h2>
         </div>
     );
 }
