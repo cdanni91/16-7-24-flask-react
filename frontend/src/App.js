@@ -11,6 +11,7 @@ function App() {
             <Routes>
                                          { /* Aca llama la funcion Home de Home.js */ }
                 <Route path="/" element={<Home />} />
+                                         { /* Aca llama la funcion Protected de Protected.js */ }
                 <Route path="/protected" element={<Protected />} />
             </Routes>
         
