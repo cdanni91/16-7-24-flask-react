@@ -46,6 +46,7 @@ function Home() {
         }
     };
 
+    
     return (
         <div className="App">
             <h2>Register</h2>
