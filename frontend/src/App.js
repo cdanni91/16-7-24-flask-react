@@ -16,6 +16,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                                          { /* Aca llama la funcion Protected de Protected.js */ }
                 <Route path="/protected" element={<Protected />} />
+                
             </Routes>
         
     );
