@@ -11,7 +11,7 @@ function App() {
     return (
 
 
-            // Basicamente aca se define que elemento funcional se llama cuando se ingresa a cada ruta
+            // Basicamente aca se define que elemento funcional se llama cuando se ingresa a cada ruta, en nuestro caso las pages
         
             <Routes>
                                          { /* Aca llama la funcion Home de Home.js */ }
