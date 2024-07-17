@@ -2,6 +2,8 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Protected from './pages/Protected';
+import Register from './pages/Register';
+import Login from './pages/Login';
 
 /// Recordar borrar el <Router> en App.js pero dejar el import, sino no se muestra
 
@@ -16,6 +18,11 @@ function App() {
                 <Route path="/" element={<Home />} />
                                          { /* Aca llama la funcion Protected de Protected.js */ }
                 <Route path="/protected" element={<Protected />} />
+        
+                <Route path="/register" element={<Register />} />
+
+                <Route path="/login" element={<Login />} />
+                
                 
             </Routes>
         
