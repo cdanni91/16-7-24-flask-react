@@ -7,6 +7,9 @@ import Protected from './pages/Protected';
 
 function App() {
     return (
+
+
+            // Basicamente aca se define que elemento funcional se llama cuando se ingresa a cada ruta
         
             <Routes>
                                          { /* Aca llama la funcion Home de Home.js */ }
