@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import RegisterForm from '../forms/RegisterForm';
 import { register } from '../services/apiService';
+import Navbar from '../components/Navbar';
 
 function Register() {
     const [message, setMessage] = useState('');
@@ -16,6 +17,7 @@ function Register() {
 
     return (
         <div>
+            <Navbar />
             <RegisterForm onRegister={handleRegister} />
             <p>{message}</p>
         </div>

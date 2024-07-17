@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoginForm from '../forms/LoginForm';
 import { login } from '../services/apiService';
+import Navbar from '../components/Navbar';
 
 function Login() {
     const [message, setMessage] = useState('');
@@ -20,6 +21,7 @@ function Login() {
 
     return (
         <div>
+            <Navbar />
             <LoginForm onLogin={handleLogin} />
             <p>{message}</p>
         </div>
