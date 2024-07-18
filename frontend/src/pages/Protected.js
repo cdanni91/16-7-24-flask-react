@@ -7,10 +7,13 @@ import ExerciseSelector from '../components/ExerciseSelector';
 function Protected() {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
-    const [selectedExercise, setSelectedExercise] = useState('');
     const [loading, setLoading] = useState(true);
 
+    // 
+    const [selectedExercise, setSelectedExercise] = useState('');
 
+
+    // Verificación del token para ingresar a la ruta
 
     useEffect(() => {
 
@@ -32,7 +35,7 @@ function Protected() {
             } catch (error) {
                 setMessage('Access denied. Please log in.');
                 navigate('/login');
-                
+
             } finally {
                 setLoading(false);
             }
@@ -40,6 +43,15 @@ function Protected() {
 
         checkProtectedRoute();
     }, [navigate]);
+
+
+
+
+
+
+
+
+// Manejo del cambio de ejercicio
 
     const handleExerciseChange = (e) => {
         setSelectedExercise(e.target.value);
