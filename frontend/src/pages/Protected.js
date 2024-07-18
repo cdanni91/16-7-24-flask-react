@@ -32,6 +32,12 @@ function Protected() {
         <div>
             <Navbar />
             <h2>{message}</h2>
+
+            <ExerciseSelector
+            exercise={exercise.exercise}
+            handleExerciseChange={(e) => handleExerciseChange(exerciseIndex, e)}
+            />
+            
         </div>
     );
 }
