@@ -15,20 +15,24 @@ function Protected() {
     useEffect(() => {
 
         const checkProtectedRoute = async () => {
+
             try {
                 const token = localStorage.getItem('token');
                 if (!token) {
                     redirect('/login');
                     return;
+
                 }
                 const response = await accessProtected(token);
                 if (response.status !== 200) {
                     throw new Error('Invalid token');
                 }
                 setMessage('LOGUEADO');
+
             } catch (error) {
                 setMessage('Access denied. Please log in.');
                 navigate('/login');
+                
             } finally {
                 setLoading(false);
             }
