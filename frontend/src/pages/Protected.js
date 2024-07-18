@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect, useNavigate } from 'react-router-dom';
 import { accessProtected } from '../services/apiService';
 import Navbar from '../components/Navbar';
 import ExerciseSelector from '../components/ExerciseSelector';
@@ -8,13 +8,18 @@ function Protected() {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
     const [selectedExercise, setSelectedExercise] = useState('');
+    const [loading, setLoading] = useState(true);
+
+
 
     useEffect(() => {
+
         const checkProtectedRoute = async () => {
             try {
                 const token = localStorage.getItem('token');
                 if (!token) {
-                    throw new Error('No token found');
+                    redirect('/login');
+                    return;
                 }
                 const response = await accessProtected(token);
                 if (response.status !== 200) {
@@ -24,6 +29,8 @@ function Protected() {
             } catch (error) {
                 setMessage('Access denied. Please log in.');
                 navigate('/login');
+            } finally {
+                setLoading(false);
             }
         };
 
@@ -34,9 +41,10 @@ function Protected() {
         setSelectedExercise(e.target.value);
     };
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-
-    
     return (
         <div>
             <Navbar />
