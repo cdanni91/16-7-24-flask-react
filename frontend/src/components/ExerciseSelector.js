@@ -1,4 +1,4 @@
-// src/components/SeriesControl.js
+
 import React from 'react';
 
 
