@@ -7,6 +7,8 @@ function Protected() {
     const navigate = useNavigate();
     const [message, setMessage] = useState('');
 
+// Revision de si el usuario tiene el JWT antes de ingresar
+    
     useEffect(() => {
         const checkProtectedRoute = async () => {
             try {
@@ -28,6 +30,7 @@ function Protected() {
         checkProtectedRoute();
     }, [navigate]);
 
+    
     return (
         <div>
             <Navbar />
