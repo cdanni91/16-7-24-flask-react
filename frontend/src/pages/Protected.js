@@ -9,8 +9,7 @@ function Protected() {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(true);
 
-    // 
-    const [selectedExercise, setSelectedExercise] = useState('');
+    
 
 
     // Verificación del token para ingresar a la ruta
@@ -52,6 +51,10 @@ function Protected() {
 
 
 // Manejo del cambio de ejercicio
+
+
+    // El hook useState, con selectedExercise como variable de estado y setSelectedExercise como funcion para cambiar el valor de la variable de estado
+    const [selectedExercise, setSelectedExercise] = useState('');
 
     const handleExerciseChange = (e) => {
         setSelectedExercise(e.target.value);
