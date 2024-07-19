@@ -61,6 +61,10 @@ function Protected() {
         return <div>Loading...</div>;
     }
 
+
+
+// Lo que se renderiza en la página Protected
+    
     return (
         <div>
             <Navbar />
@@ -72,5 +76,8 @@ function Protected() {
         </div>
     );
 }
+
+
+
 
 export default Protected;
