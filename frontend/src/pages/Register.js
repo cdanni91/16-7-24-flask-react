@@ -6,6 +6,8 @@ import Navbar from '../components/Navbar';
 function Register() {
     const [message, setMessage] = useState('');
 
+
+    // Maneja la solicitud a la apiService de register
     const handleRegister = async (data) => {
         try {
             const response = await register(data.email, data.password);
